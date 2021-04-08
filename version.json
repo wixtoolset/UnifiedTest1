@@ -1,5 +1,5 @@
 {
-  "version": "4.0.0-preview.0-build.{height}",
+  "version": "4.1-preview",
   "publicReleaseRefSpec": [
     "^refs/heads/master$"
   ],
