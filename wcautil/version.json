@@ -1,11 +1,4 @@
 {
-  "version": "4.0",
-  "publicReleaseRefSpec": [
-    "^refs/heads/master$"
-  ],
-  "cloudBuild": {
-    "buildNumber": {
-      "enabled": true
-    }
-  }
+  "inherit": true,
+  "pathFilters": [ "." ]
 }
