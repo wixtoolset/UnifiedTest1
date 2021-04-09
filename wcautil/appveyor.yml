@@ -3,6 +3,11 @@
 #  Do NOT modify this file. Update the canonical version in Home\repo-template\src\appveyor.yml
 #  then update all of the repos.
 
+branches:
+  only:
+    - master
+    - develop
+
 image: Visual Studio 2019
 
 version: 0.0.0.{build}
@@ -12,6 +17,10 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   NUGET_XMLDOC_MODE: skip
+
+only_commits:
+  files:
+    - wcautil\
 
 build_script:
   - wcautil\appveyor.cmd
