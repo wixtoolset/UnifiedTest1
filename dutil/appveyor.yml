@@ -19,7 +19,7 @@ environment:
   NUGET_XMLDOC_MODE: skip
 
 build_script:
-  - appveyor.cmd
+  - dutil\appveyor.cmd
 
 test: off
 
@@ -33,10 +33,8 @@ skip_branch_with_pr: true
 skip_tags: true
 
 artifacts:
-- path: build\Release\**\*.nupkg
+- path: dutil\build\Release\**\*.nupkg
   name: nuget
-- path: build\Release\**\*.msi
-  name: msi
 
 notifications:
 - provider: Slack
