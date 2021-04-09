@@ -19,7 +19,7 @@ environment:
   NUGET_XMLDOC_MODE: skip
 
 build_script:
-  - appveyor.cmd
+  - dutil\appveyor.cmd
 
 test: off
 
