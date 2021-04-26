@@ -8,9 +8,22 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Mba.Core" Version="4.0.0-preview.0-build.0" />
+  </ItemGroup>
+
+  <Target Name="GitVersion">
+    <PropertyGroup>
+      <GitBaseVersionMajor>42</GitBaseVersionMajor>
+      <GitBaseVersionMinor>42</GitBaseVersionMinor>
+      <GitBaseVersionPatch>42</GitBaseVersionPatch>
+      <GitCommits>42</GitCommits>
+      <GitSha>abc123def456</GitSha>
+    </PropertyGroup>
+  </Target>
 
   <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37" PrivateAssets="all" />
-    <PackageReference Include="WixToolset.Mba.Core" Version="4.0.*" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="GitInfo" Version="2.1.2" />
   </ItemGroup>
 </Project>

@@ -360,3 +360,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+# WiX Specific Ignores
+
+# Ignore downloaded tools
+build/.tools/
+
+# Ignore generated test data
+src/test/burn/TestData/CacheTests/BundleC/fivegb.file

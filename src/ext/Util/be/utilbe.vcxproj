@@ -69,11 +69,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.BextUtil" Version="4.0.58" />
-    <PackageReference Include="WixToolset.BootstrapperCore.Native" Version="4.0.141" />
-    <PackageReference Include="WixToolset.DUtil" Version="4.0.72" />
+    <PackageReference Include="WixToolset.BextUtil" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="WixToolset.BootstrapperCore.Native" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="WixToolset.DUtil" Version="4.0.0-preview.0-build.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37" />
+    <PackageReference Include="GitInfo" Version="2.1.2" />
   </ItemGroup>
 
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

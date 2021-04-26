@@ -10,12 +10,10 @@
     <IsTool>true</IsTool>
     <ContentTargetFolders>build</ContentTargetFolders>
   </PropertyGroup>
+
   <ItemGroup>
     <Content Include="$(MSBuildThisFileName).targets" />
     <EmbeddedResource Include="$(OutputPath)..\difxapp.wixlib" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="WixToolset.Extensibility" Version="4.0.*" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37" PrivateAssets="all" />
+    <PackageReference Include="WixToolset.Extensibility" Version="4.0.0-preview.0-build.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 </Project>
