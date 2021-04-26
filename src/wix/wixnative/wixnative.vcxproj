@@ -67,7 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Dutil" Version="4.0.72" />
+    <PackageReference Include="WixToolset.Dutil" Version="4.0.0-preview.0-build.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" />
     <PackageReference Include="GitInfo" Version="2.1.2" />
   </ItemGroup>

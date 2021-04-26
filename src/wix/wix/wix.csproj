@@ -5,15 +5,15 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net461</TargetFrameworks>
     <OutputType>Exe</OutputType>
-    <Description>Compiler</Description>
-    <Title>WiX Toolset Compiler</Title>
+    <Description>WiX Toolset create installation packages.</Description>
     <DebugType>embedded</DebugType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <!-- <PackAsTool>true</PackAsTool> -->
-    <RuntimeIdentifier Condition=" '$(RuntimeIdentifier)'=='' and '$(TargetFramework)'!='netcoreapp3.1' ">win-x86</RuntimeIdentifier>
+    <PackAsTool>true</PackAsTool>
+    <RuntimeIdentifiers Condition=" '$(RuntimeIdentifier)'=='' and '$(TargetFramework)'!='netcoreapp3.1' ">win-x86;win-x64</RuntimeIdentifiers>
     <AppConfig>app.config</AppConfig>
     <ApplicationManifest>wix.exe.manifest</ApplicationManifest>
     <RollForward>Major</RollForward>
+    <NuspecBasePath>$(OutputPath)publish\wix\</NuspecBasePath>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -25,15 +25,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Converters" Version="4.0.*" />
-    <PackageReference Include="WixToolset.Core" Version="4.0.*" />
-    <PackageReference Include="WixToolset.Core.Burn" Version="4.0.*" />
-    <PackageReference Include="WixToolset.Core.ExtensionCache" Version="4.0.*" />
-    <PackageReference Include="WixToolset.Core.WindowsInstaller" Version="4.0.*" />
+    <ProjectReference Include="..\WixToolset.Converters\WixToolset.Converters.csproj" />
+    <ProjectReference Include="..\WixToolset.Core\WixToolset.Core.csproj" />
+    <ProjectReference Include="..\WixToolset.Core.Burn\WixToolset.Core.Burn.csproj" />
+    <ProjectReference Include="..\WixToolset.Core.ExtensionCache\WixToolset.Core.ExtensionCache.csproj" />
+    <ProjectReference Include="..\WixToolset.Core.WindowsInstaller\WixToolset.Core.WindowsInstaller.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37" PrivateAssets="All" />
+    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 </Project>

@@ -20,7 +20,7 @@
 
   <ItemGroup Condition=" '$(NCrunch)'=='' ">
     <ProjectReference Include="..\wixnative\wixnative.vcxproj" ReferenceOutputAssembly="false" PrivateAssets="All" Properties="Platform=ARM64" />
-    <ProjectReference Include="..\wixnative\wixnative.vcxproj" ReferenceOutputAssembly="false" PrivateAssets="All" Properties="Platform=Win32" />
+    <ProjectReference Include="..\wixnative\wixnative.vcxproj" ReferenceOutputAssembly="false" PrivateAssets="All" Properties="Platform=x86" />
     <ProjectReference Include="..\wixnative\wixnative.vcxproj" ReferenceOutputAssembly="false" PrivateAssets="All" Properties="Platform=x64" />
   </ItemGroup>
 
@@ -30,13 +30,13 @@
     <None Include="$(BaseOutputPath)$(Configuration)\x64\wixnative.pdb" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup Condition=" '$(NCrunch)'=='1' ">
-    <None Include="$(NCrunchOriginalProjectDir)..\..\build\$(Configuration)\x64\mergemod.dll" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="$(NCrunchOriginalProjectDir)..\..\build\$(Configuration)\x64\wixnative.exe" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="$(NCrunchOriginalProjectDir)..\..\build\$(Configuration)\x64\wixnative.pdb" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(NCrunchOriginalProjectDir)..\..\..\build\$(SegmentName)\$(Configuration)\x64\mergemod.dll" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(NCrunchOriginalProjectDir)..\..\..\build\$(SegmentName)\$(Configuration)\x64\wixnative.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(NCrunchOriginalProjectDir)..\..\..\build\$(SegmentName)\$(Configuration)\x64\wixnative.pdb" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Data" Version="4.0.*" />
+    <PackageReference Include="WixToolset.Data" Version="4.0.0-preview.0-build.0" />
 
     <!-- Warning: The version for System.IO.FileSystem.AccessControl must be kept in sync with WixToolset.Core.nuspec -->
     <PackageReference Include="System.IO.FileSystem.AccessControl" Version="4.6.0" />

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (c) .NET Foundation and contributors. All rights reserved. Licensed under the Microsoft Reciprocal License. See LICENSE.TXT file in the project root for full license information. -->
-<!--
-  Do NOT modify this file. Update the canonical version in Home\repo-template\src\Directory.Build.targets
-  then update all of the repos.
--->
+
 <Project>
   <PropertyGroup>
     <SigningToolFolder>$(BaseOutputPath)obj\.tools</SigningToolFolder>
@@ -42,6 +39,7 @@
   <PropertyGroup>
     <GenerateNuspecDependsOn>
       $(GenerateNuspecDependsOn);
+      __SetPropertiesFromGit;
       __SetNuspecProperties
     </GenerateNuspecDependsOn>
   </PropertyGroup>
@@ -51,10 +49,14 @@
     <PropertyGroup>
       <ProjectUrl Condition=" '$(ProjectUrl)'=='' and '$(GitRepositoryUrl)'!='' ">$(GitRepositoryUrl.Replace('.git',''))</ProjectUrl>
 
-      <NuspecFile>$(MSBuildProjectName).nuspec</NuspecFile>
-      <NuspecBasePath Condition=" '$(NuspecBasePath)'=='' ">$([System.IO.Path]::GetFullPath($(OutputPath)..))\</NuspecBasePath>
-      <NuspecProperties>$(NuspecProperties);Id=$(PackageId);Authors="$(Authors)";Configuration=$(Configuration);Copyright="$(Copyright)";Description="$(Description)";Title="$(Title)"</NuspecProperties>
-      <NuspecProperties>$(NuspecProperties);Version=$(PackageVersion);RepositoryCommit=$(GitSha);RepositoryType=git;RepositoryUrl=$(GitRepositoryUrl);ProjectFolder=$(MSBuildProjectDirectory)\;ProjectUrl=$(ProjectUrl)</NuspecProperties>
+      <NuspecFile Condition=" '$(NuspecFile)'=='' ">$(MSBuildProjectName).nuspec</NuspecFile>
+      <PackageId Condition=" '$(PackageId)'=='' ">$(MSBuildProjectName)</PackageId>
+      <Title Condition=" '$(Title)'=='' ">$(Description)</Title>
+      <NuspecBasePath Condition=" '$(NuspecBasePath)'=='' ">$(OutputPath)</NuspecBasePath>
+      <NuspecProperties>$(NuspecProperties);Id=$(PackageId);Version=$(PackageVersion);Authors=$(Authors);Configuration=$(Configuration)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);Copyright=$(Copyright);Description=$(Description);Title=$(Title)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);RepositoryType=git;RepositoryCommit=$(GitSha);RepositoryUrl=$(GitRepositoryUrl)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);ProjectUrl=$(ProjectUrl);ProjectFolder=$(MSBuildProjectDirectory)</NuspecProperties>
       <PublishRepositoryUrl>true</PublishRepositoryUrl>
       <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
@@ -70,7 +72,7 @@
   <Target Name="PackNative" DependsOnTargets="__SetNuspecProperties"
           Condition=" Exists('$(MSBuildProjectName).nuspec') ">
 
-    <Exec Command='nuget pack $(NuspecFile) -OutputDirectory "$(BaseOutputPath)$(Configuration)" -BasePath "$(NuspecBasePath)" -Properties $(NuspecProperties)' 
+    <Exec Command='nuget pack $(NuspecFile) -OutputDirectory "$(PackageOutputPath.Trim(&quot;\&quot;))" -BasePath $(NuspecBasePath) -Properties $(NuspecProperties)' 
           WorkingDirectory="$(MSBuildProjectDirectory)" />
 
     <ItemGroup>

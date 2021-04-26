@@ -12,20 +12,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WixToolset.Core.Native\WixToolset.Core.Native.csproj" IncludeAssets="true" />
     <ProjectReference Include="..\WixToolset.Core\WixToolset.Core.csproj" IncludeAssets="true" />
     <ProjectReference Include="..\WixToolset.Core.Burn\WixToolset.Core.Burn.csproj" IncludeAssets="true" />
     <ProjectReference Include="..\WixToolset.Core.WindowsInstaller\WixToolset.Core.WindowsInstaller.csproj" IncludeAssets="true" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Data" Version="4.0.*" />
-    <PackageReference Include="WixToolset.Extensibility" Version="4.0.*" />
-    <PackageReference Include="WixToolset.Core.Native" Version="4.0.*" />
+    <PackageReference Include="WixToolset.Data" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="WixToolset.Extensibility" Version="4.0.0-preview.0-build.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37" PrivateAssets="All" />
+    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

@@ -21,12 +21,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixBuildTools.TestSupport" Version="4.0.*" />
+    <PackageReference Include="WixBuildTools.TestSupport" Version="4.0.0-preview.0-build.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 </Project>

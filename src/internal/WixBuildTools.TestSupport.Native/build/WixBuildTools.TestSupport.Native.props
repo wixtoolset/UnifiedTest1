@@ -4,7 +4,7 @@
 
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <RepoRootDir Condition=" '$(RepoRootDir)' == '' ">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), version.json))</RepoRootDir>
+    <RepoRootDir Condition=" '$(RepoRootDir)' == '' ">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</RepoRootDir>
   </PropertyGroup>
   <Import Project="$(RepoRootDir)\packages\xunit.core.2.4.1\build\xunit.core.props" Condition="Exists('$(RepoRootDir)\packages\xunit.core.2.4.1\build\xunit.core.props')" />
   <Import Project="$(RepoRootDir)\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('$(RepoRootDir)\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" />
