@@ -42,7 +42,7 @@
 
   <PropertyGroup>
     <ProjectAdditionalIncludeDirectories>$(ProjectAdditionalIncludeDirectories);..\..\engine</ProjectAdditionalIncludeDirectories>
-    <ProjectAdditionalLinkLibraries>cabinet.lib;crypt32.lib;msi.lib;rpcrt4.lib;shlwapi.lib;wininet.lib</ProjectAdditionalLinkLibraries>
+    <ProjectAdditionalLinkLibraries>cabinet.lib;crypt32.lib;msi.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;wintrust.lib</ProjectAdditionalLinkLibraries>
   </PropertyGroup>
 
   <ItemGroup>
