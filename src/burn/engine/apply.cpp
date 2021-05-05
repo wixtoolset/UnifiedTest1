@@ -335,6 +335,7 @@ extern "C" void ApplyReset(
     {
         BURN_PACKAGE* pPackage = pPackages->rgPackages + i;
         pPackage->hrCacheResult = S_OK;
+        pPackage->fReachedExecution = FALSE;
         pPackage->transactionRegistrationState = BURN_PACKAGE_REGISTRATION_STATE_UNKNOWN;
     }
 }
@@ -2111,6 +2112,7 @@ static void DoRollbackCache(
 {
     HRESULT hr = S_OK;
     DWORD iCheckpoint = 0;
+    BURN_PACKAGE* pPackage = NULL;
 
     // Scan to last checkpoint.
     for (DWORD i = 0; i < pPlan->cRollbackCacheActions; ++i)
@@ -2127,10 +2129,9 @@ static void DoRollbackCache(
     // Rollback cache actions.
     if (iCheckpoint)
     {
-        // i has to be a signed integer so it doesn't get decremented to 0xFFFFFFFF.
-        for (int i = iCheckpoint - 1; i >= 0; --i)
+        for (DWORD i = iCheckpoint; i > 0; --i)
         {
-            BURN_CACHE_ACTION* pRollbackCacheAction = &pPlan->rgRollbackCacheActions[i];
+            BURN_CACHE_ACTION* pRollbackCacheAction = &pPlan->rgRollbackCacheActions[i - 1];
 
             switch (pRollbackCacheAction->type)
             {
@@ -2138,7 +2139,21 @@ static void DoRollbackCache(
                 break;
 
             case BURN_CACHE_ACTION_TYPE_ROLLBACK_PACKAGE:
-                hr = CleanPackage(hPipe, pRollbackCacheAction->rollbackPackage.pPackage);
+                pPackage = pRollbackCacheAction->rollbackPackage.pPackage;
+
+                // If the package was executed then it's up to ApplyExecute to rollback its cache.
+                if (!pPackage->fReachedExecution) 
+                {
+                    if (!pPackage->fCached) // only rollback when it wasn't already cached.
+                    {
+                        hr = CleanPackage(hPipe, pPackage);
+                    }
+                    else if (pPackage->fCanAffectRegistration && !pPlan->fBundleAlreadyRegistered)
+                    {
+                        // Don't let this already cached package cause the registration to be kept if the bundle failed and wasn't already registered.
+                        pPackage->cacheRegistrationState = BURN_PACKAGE_REGISTRATION_STATE_IGNORED;
+                    }
+                }
                 break;
 
             default:
@@ -2452,6 +2467,11 @@ LExit:
         hr = ExecutePackageComplete(&pEngineState->userExperience, &pEngineState->variables, pPackage, hr, hrExecute, fRollback, pRestart, pfRetry, pfSuspend);
     }
 
+    if (!fRollback)
+    {
+        pPackage->fReachedExecution = TRUE;
+    }
+
     return hr;
 }
 
@@ -2514,6 +2534,11 @@ LExit:
     if (fBeginCalled)
     {
         hr = ExecutePackageComplete(&pEngineState->userExperience, &pEngineState->variables, pPackage, hr, hrExecute, fRollback, pRestart, pfRetry, pfSuspend);
+    }
+
+    if (!fRollback)
+    {
+        pPackage->fReachedExecution = TRUE;
     }
 
     return hr;
@@ -2587,6 +2612,11 @@ LExit:
     if (fBeginCalled)
     {
         hr = ExecutePackageComplete(&pEngineState->userExperience, &pEngineState->variables, pPackage, hr, hrExecute, fRollback, pRestart, pfRetry, pfSuspend);
+    }
+
+    if (!fRollback)
+    {
+        pPackage->fReachedExecution = TRUE;
     }
 
     return hr;
@@ -2667,6 +2697,11 @@ LExit:
     if (fBeginCalled)
     {
         hr = ExecutePackageComplete(&pEngineState->userExperience, &pEngineState->variables, pPackage, hr, hrExecute, fRollback, pRestart, pfRetry, pfSuspend);
+    }
+
+    if (!fRollback)
+    {
+        pPackage->fReachedExecution = TRUE;
     }
 
     return hr;
