@@ -23,16 +23,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="14.3" Condition="'$(TargetFramework)'=='net461' or '$(TargetFramework)'=='net472'" />
-    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.7.179" Condition="'$(TargetFramework)'=='netcoreapp3.1' " />
-    <PackageReference Include="WixBuildTools.TestSupport" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" />
+    <PackageReference Include="WixBuildTools.TestSupport" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
-    <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+    <PackageReference Include="GitInfo" PrivateAssets="All" />
   </ItemGroup>
 </Project>

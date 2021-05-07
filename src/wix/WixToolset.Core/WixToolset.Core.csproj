@@ -31,8 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Data" Version="4.0.0-preview.0-build.0" />
-    <PackageReference Include="WixToolset.Extensibility" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="WixToolset.Data" />
+    <PackageReference Include="WixToolset.Extensibility" />
   </ItemGroup>
 
   <!--
@@ -40,12 +40,7 @@
     you update these here, be sure to update them there.
   -->
   <ItemGroup>
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.6.0" />
-    <PackageReference Include="NuGet.Versioning" Version="5.6.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="System.Text.Encoding.CodePages" />
+    <PackageReference Include="NuGet.Versioning" />
   </ItemGroup>
 </Project>

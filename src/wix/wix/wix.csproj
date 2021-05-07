@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net461' and '$(OS)' != 'Windows_NT'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.0" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,7 +48,7 @@
       This PackageReference is required so the RuntimeTargetsCopyLocalItems have a package (any package would
       do, WixToolset.Data is as good as any) to "attach" themselves to.
     -->
-    <PackageReference Include="WixToolset.Data" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="WixToolset.Data" />
 
     <RuntimeTargetsCopyLocalItems Include="@(NativeLibrary)" 
                                   AssetType="native"
@@ -59,10 +59,5 @@
     <Content Include="@(RuntimeTargetsCopyLocalItems)" 
              Link="%(DestinationSubDirectory)\%(FileName)%(Extension)" 
              CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 </Project>

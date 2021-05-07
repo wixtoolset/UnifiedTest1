@@ -63,10 +63,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Dutil" Version="4.0.0-preview.0-build.0" />
-    <PackageReference Include="WixToolset.WcaUtil" Version="4.0.0-preview.0-build.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="WixToolset.Dutil" />
+    <PackageReference Include="WixToolset.WcaUtil" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+    <PackageReference Include="GitInfo" PrivateAssets="All" />
   </ItemGroup>
 
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -17,16 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Data" Version="4.0.0-preview.0-build.0" PrivateAssets="all" />
-    <PackageReference Include="WixToolset.Extensibility" Version="4.0.0-preview.0-build.0" PrivateAssets="all" />
+    <PackageReference Include="WixToolset.Data"  PrivateAssets="all" />
+    <PackageReference Include="WixToolset.Extensibility"  PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\wixlib\iis.wixproj" ReferenceOutputAssembly="false" Condition=" '$(NCrunch)'=='' " />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 </Project>

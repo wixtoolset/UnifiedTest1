@@ -9,9 +9,4 @@
     <Description>Classes for reading and writing resource data in executable files</Description>
     <CreateDocumentationFile>true</CreateDocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
-  </ItemGroup>
 </Project>

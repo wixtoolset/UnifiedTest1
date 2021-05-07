@@ -9,8 +9,8 @@
 @echo Building ext\UI %_C%
 
 :: Restore
-nuget restore || exit /b
-msbuild -t:Restore -p:Configuration=%_C% || exit /b
+@REM nuget restore || exit /b
+msbuild -t:Restore -p:RestorePackagesConfig=true -p:Configuration=%_C% || exit /b
 
 :: Build
 msbuild -t:Build -p:Configuration=%_C% test\WixToolsetTest.UI\WixToolsetTest.UI.csproj || exit /b

@@ -25,6 +25,6 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="GitInfo" Version="2.1.2" />
+    <PackageReference Include="GitInfo" />
   </ItemGroup>
 </Project>

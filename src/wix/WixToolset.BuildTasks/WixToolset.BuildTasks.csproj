@@ -14,26 +14,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="WixToolset.Dtf.WindowsInstaller" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net461'">
     <ProjectReference Include="..\WixToolset.Core\WixToolset.Core.csproj" />
     <ProjectReference Include="..\WixToolset.Core.Burn\WixToolset.Core.Burn.csproj" />
     <ProjectReference Include="..\WixToolset.Core.WindowsInstaller\WixToolset.Core.WindowsInstaller.csproj" />
-    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="14.3" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net461' and '$(OS)' != 'Windows_NT'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.0" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' ">
-    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.7.179" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" />
   </ItemGroup>
 </Project>

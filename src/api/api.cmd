@@ -11,7 +11,6 @@
 :: api
 
 msbuild -t:Restore -p:Configuration=%_C% wix\api_wix.sln || exit /b
-
 nuget restore || exit /b
 
 
