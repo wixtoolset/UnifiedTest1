@@ -24,7 +24,7 @@
     </GetPackageVersionDependsOn>
   </PropertyGroup>
 
-  <Target Name="__SetPropertiesFromGit" DependsOnTargets="GitVersion">
+  <Target Name="__SetPropertiesFromGit" DependsOnTargets="GitVersion" Condition=" '$(GitInfoImported)'=='true' ">
     <PropertyGroup>
       <AssemblyVersion>$(GitBaseVersionMajor).$(GitBaseVersionMinor).0.0</AssemblyVersion>
       <FileVersion>$(GitBaseVersionMajor).$(GitBaseVersionMinor).$(GitBaseVersionPatch).$(GitCommits)</FileVersion>

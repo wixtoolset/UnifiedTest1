@@ -3,7 +3,7 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks Condition=" '$(TargetFramework)'=='' ">netcoreapp3.1;net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net461</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <Description>WiX Toolset create installation packages.</Description>
     <DebugType>embedded</DebugType>
@@ -32,7 +32,7 @@
     <ProjectReference Include="..\WixToolset.Core.WindowsInstaller\WixToolset.Core.WindowsInstaller.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition=" '$(NCrunch)'=='' ">
     <NativeLibrary Include="..\wixnative\Win32\mergemod.dll" RuntimeIdentifier="win-x86" />
     <NativeLibrary Include="..\wixnative\x64\mergemod.dll" RuntimeIdentifier="win-x64" />
     <NativeLibrary Include="$(BaseOutputPath)$(Configuration)\ARM64\wixnative.exe" RuntimeIdentifier="win-arm64" />

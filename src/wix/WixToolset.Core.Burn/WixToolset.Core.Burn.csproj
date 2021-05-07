@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="WixToolset.Burn" Version="4.0.0-preview.0-build.0" />
     <PackageReference Include="WixToolset.Data" Version="4.0.0-preview.0-build.0" />
     <PackageReference Include="WixToolset.Dtf.Resources" Version="4.0.0-preview.0-build.0" />
     <PackageReference Include="WixToolset.Extensibility" Version="4.0.0-preview.0-build.0" />
