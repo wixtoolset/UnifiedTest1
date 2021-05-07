@@ -8,16 +8,20 @@
     <AssemblyName>WixToolsetTests.Dtf.Cab</AssemblyName>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <CreateDocumentation>false</CreateDocumentation>
+    <SignOutput>false</SignOutput>
   </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="CabTest.cs" />
   </ItemGroup>
+
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\WixToolset.Dtf.Compression\WixToolset.Dtf.Compression.csproj">
       <Project>{45D81DAB-0559-4836-8106-CE9987FD4AB5}</Project>
@@ -32,5 +36,6 @@
       <Name>WixToolsetTests.Dtf.Compression</Name>
     </ProjectReference>
   </ItemGroup>
+
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

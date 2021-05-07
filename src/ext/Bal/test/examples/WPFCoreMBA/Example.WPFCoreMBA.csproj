@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Mba.Core" Version="4.0.0-preview.0-build.0" />
+    <PackageReference Include="WixToolset.Mba.Core" />
   </ItemGroup>
 
   <Target Name="GitVersion">
@@ -21,9 +21,4 @@
       <GitSha>abc123def456</GitSha>
     </PropertyGroup>
   </Target>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" />
-  </ItemGroup>
 </Project>

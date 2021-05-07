@@ -36,9 +36,4 @@
       <FileWrites Include="@(HeaderPath)" />
     </ItemGroup>
   </Target>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="all" />
-  </ItemGroup>
 </Project>

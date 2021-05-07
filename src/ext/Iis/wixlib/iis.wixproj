@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" />
-    <PackageReference Include="GitInfo" Version="2.1.2" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" />
+    <PackageReference Include="GitInfo" />
   </ItemGroup>
 </Project>
