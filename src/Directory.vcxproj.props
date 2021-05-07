@@ -4,8 +4,10 @@
 <Project>
   <PropertyGroup>
     <Platform Condition=" '$(Platform)' == '' OR '$(Platform)' == 'AnyCPU' ">Win32</Platform>
-    <IntDir>$(BaseIntermediateOutputPath)$(Configuration)\$(Platform)\</IntDir>
-    <OutDir>$(OutputPath)$(Platform)\</OutDir>
+    <PlatformFolder Condition=" '$(Platform)' == 'Win32' ">x86</PlatformFolder>
+    <PlatformFolder Condition=" '$(PlatformFolder)' == '' ">$(Platform)</PlatformFolder>
+    <IntDir>$(BaseIntermediateOutputPath)$(Configuration)\$(PlatformFolder)\</IntDir>
+    <OutDir>$(OutputPath)$(PlatformFolder)\</OutDir>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(CLRSupport)'!='true' ">

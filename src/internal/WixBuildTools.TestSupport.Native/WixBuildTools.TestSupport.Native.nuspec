@@ -20,7 +20,7 @@
     <file src="$projectFolder$\build\$id$.props" target="build" />
     <file src="$projectFolder$\build\$id$.targets" target="build" />
 
-    <file src="..\Win32\$id$.dll" target="lib\net472" />
-    <file src="..\Win32\$id$.pdb" target="lib\net472" />
+    <file src="..\x86\$id$.dll" target="lib\net472" />
+    <file src="..\x86\$id$.pdb" target="lib\net472" />
   </files>
 </package>
