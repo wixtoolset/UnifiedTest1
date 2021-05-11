@@ -17,9 +17,4 @@
   <ItemGroup Condition="'$(TargetFramework)'=='net35'">
     <Reference Include="System.Management" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="GitInfo" Version="2.1.2" PrivateAssets="All" />
-  </ItemGroup>
 </Project>

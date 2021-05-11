@@ -42,7 +42,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
 
   <PropertyGroup>
-    <ProjectAdditionalIncludeDirectories Condition=" '$(DirectReference)'=='true' ">$(ProjectDir)..\..\..\balutil\src\WixToolset.BootstrapperCore.Native\inc;$(ProjectAdditionalIncludeDirectories)</ProjectAdditionalIncludeDirectories>
+    <ProjectAdditionalIncludeDirectories>..\..\api\burn\WixToolset.BootstrapperCore.Native\inc;$(ProjectAdditionalIncludeDirectories)</ProjectAdditionalIncludeDirectories>
   </PropertyGroup>
 
   <ImportGroup Label="ExtensionSettings">
@@ -94,13 +94,14 @@
     <ClCompile Include="variable.cpp" />
     <ClCompile Include="variant.cpp" />
   </ItemGroup>
+
   <ItemGroup>
     <ClInclude Include="apply.h" />
     <ClInclude Include="approvedexe.h" />
-    <ClInclude Include="..\WixToolset.BootstrapperCore.Native\inc\BootstrapperApplication.h" />
-    <ClInclude Include="..\WixToolset.BootstrapperCore.Native\inc\BootstrapperEngine.h" />
-    <ClInclude Include="..\WixToolset.BootstrapperCore.Native\inc\BundleExtension.h" />
-    <ClInclude Include="..\WixToolset.BootstrapperCore.Native\inc\BundleExtensionEngine.h" />
+    <ClInclude Include="..\..\api\burn\WixToolset.BootstrapperCore.Native\inc\BootstrapperApplication.h" />
+    <ClInclude Include="..\..\api\burn\WixToolset.BootstrapperCore.Native\inc\BootstrapperEngine.h" />
+    <ClInclude Include="..\..\api\burn\WixToolset.BootstrapperCore.Native\inc\BundleExtension.h" />
+    <ClInclude Include="..\..\api\burn\WixToolset.BootstrapperCore.Native\inc\BundleExtensionEngine.h" />
     <ClInclude Include="burnextension.h" />
     <ClInclude Include="cabextract.h" />
     <ClInclude Include="cache.h" />
@@ -169,11 +170,10 @@ rc.exe -fo "$(OutDir)engine.res" "$(IntDir)engine.messages.rc"</Command>
   </Target>
 
   <ItemGroup>
+    <PackageReference Include="WixToolset.DUtil" />
+
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
     <PackageReference Include="GitInfo" PrivateAssets="All" />
-
-    <PackageReference Include="WixToolset.BootstrapperCore.Native" />
-    <PackageReference Include="WixToolset.DUtil" />
   </ItemGroup>
 
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

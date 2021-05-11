@@ -8,7 +8,9 @@
 
 @echo build %_C%
 
-md ..\build\artifacts
+:: Initialize required files/folders
+
+call build_init.cmd
 
 :: DTF
 

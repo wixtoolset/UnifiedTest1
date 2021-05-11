@@ -8,13 +8,9 @@
 
 @echo Building api %_C%
 
-:: api
-
-msbuild -t:Restore -p:Configuration=%_C% wix\api_wix.sln || exit /b
-nuget restore || exit /b
-
-
 :: burn
+
+nuget restore burn\api_burn.sln || exit /b
 
 msbuild -p:Configuration=%_C%;Platform=x86;PlatformToolset=v142 burn\api_burn.sln || exit /b
 msbuild -p:Configuration=%_C%;Platform=x64;PlatformToolset=v142 burn\api_burn.sln || exit /b
@@ -31,13 +27,13 @@ dotnet test -c %_C% --no-build burn\test\WixToolsetTest.Mba.Core\WixToolsetTest.
 
 msbuild -t:PackNative -p:Configuration=%_C% burn\balutil\balutil.vcxproj || exit /b
 msbuild -t:PackNative -p:Configuration=%_C% burn\bextutil\bextutil.vcxproj || exit /b
-msbuild -t:PackNative -p:Configuration=%_C% burn\WixToolset.BootstrapperCore.Native\WixToolset.BootstrapperCore.Native.proj || exit /b
+msbuild -t:PackNative -Restore -p:Configuration=%_C% burn\WixToolset.BootstrapperCore.Native\WixToolset.BootstrapperCore.Native.proj || exit /b
 msbuild -t:Pack -p:Configuration=%_C% -p:NoBuild=true burn\WixToolset.Mba.Core\WixToolset.Mba.Core.csproj || exit /b
 
 
 :: wix
 
-msbuild -p:Configuration=%_C% wix\api_wix.sln || exit /b
+msbuild -Restore -p:Configuration=%_C% wix\api_wix.sln || exit /b
 
 dotnet test -c %_C% --no-build wix\api_wix.sln || exit /b
 
