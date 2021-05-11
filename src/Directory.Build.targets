@@ -84,6 +84,8 @@
 
   <Target Name="PackNative" DependsOnTargets="__SetNuspecProperties"
           Condition=" Exists('$(MSBuildProjectName).nuspec') ">
+    <Error Text="There must be package reference to 'GitInfo'. Ensure the project was restored as well."
+           Condition=" '$(GitInfoImported)'!='true' " />
 
     <Exec Command='nuget pack $(NuspecFile) -OutputDirectory "$(PackageOutputPath.Trim(&quot;\&quot;))" -BasePath $(NuspecBasePath) -Properties "$(NuspecProperties)"'
           WorkingDirectory="$(MSBuildProjectDirectory)" />

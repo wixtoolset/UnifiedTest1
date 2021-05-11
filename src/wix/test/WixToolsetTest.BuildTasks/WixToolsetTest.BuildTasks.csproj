@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Tasks.Core" />
-    <PackageReference Include="WixBuildTools.TestSupport" />
+    <ProjectReference Include="..\..\..\internal\WixBuildTools.TestSupport\WixBuildTools.TestSupport.csproj" />
   </ItemGroup>
 
   <ItemGroup>

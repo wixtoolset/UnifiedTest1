@@ -21,14 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixToolset.Core" />
-    <PackageReference Include="WixToolset.Core.Burn" />
-    <PackageReference Include="WixToolset.Core.WindowsInstaller" />
     <PackageReference Include="WixToolset.Core.TestPackage" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="WixBuildTools.TestSupport" />
   </ItemGroup>
 
   <ItemGroup>

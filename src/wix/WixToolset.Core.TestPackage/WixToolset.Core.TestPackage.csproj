@@ -13,15 +13,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WixToolset.Core.Native\WixToolset.Core.Native.csproj" IncludeAssets="true" />
-    <ProjectReference Include="..\WixToolset.Core\WixToolset.Core.csproj" IncludeAssets="true" />
-    <ProjectReference Include="..\WixToolset.Core.Burn\WixToolset.Core.Burn.csproj" IncludeAssets="true" />
-    <ProjectReference Include="..\WixToolset.Core.WindowsInstaller\WixToolset.Core.WindowsInstaller.csproj" IncludeAssets="true" />
+    <ProjectReference Include="..\WixToolset.Core.Native\WixToolset.Core.Native.csproj" PrivateAssets="true" />
+    <ProjectReference Include="..\WixToolset.Core\WixToolset.Core.csproj" PrivateAssets="true" />
+    <ProjectReference Include="..\WixToolset.Core.Burn\WixToolset.Core.Burn.csproj" PrivateAssets="true" />
+    <ProjectReference Include="..\WixToolset.Core.WindowsInstaller\WixToolset.Core.WindowsInstaller.csproj" PrivateAssets="true" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="WixToolset.Data" />
     <PackageReference Include="WixToolset.Extensibility" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WixBuildTools.TestSupport" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixBuildTools.TestSupport" />
+    <!-- <PackageReference Include="WixBuildTools.TestSupport" /> -->
+    <ProjectReference Include="..\..\..\internal\WixBuildTools.TestSupport\WixBuildTools.TestSupport.csproj" />
   </ItemGroup>
 
   <ItemGroup>

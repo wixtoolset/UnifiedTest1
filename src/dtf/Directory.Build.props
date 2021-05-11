@@ -3,8 +3,7 @@
 
 <Project>
   <PropertyGroup>
-    <SegmentName>internal</SegmentName>
-    <GitCommitsRelativeTo>$(MSBuildThisFileDirectory)</GitCommitsRelativeTo>
+    <SegmentName>dtf</SegmentName>
   </PropertyGroup>
 
   <Import Project="..\Directory.Build.props" />

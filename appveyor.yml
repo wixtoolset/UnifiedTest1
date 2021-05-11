@@ -19,10 +19,6 @@ environment:
   SigningSecret:
     secure: h0urCGu3+ArelfLcW0JvB82rc7dkPqedVSxXmMbQ+dc=
 
-before_build:
-  - md build\artifacts
-  - msbuild -Restore -v:m src\internal\SetBuildNumber\SetBuildNumber.proj
-
 build_script:
   - src\build_official.cmd
 

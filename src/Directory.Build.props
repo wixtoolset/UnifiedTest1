@@ -3,12 +3,13 @@
 
 <Project>
   <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <EnableSourceLink Condition=" '$(NCrunch)' == '1' ">false</EnableSourceLink>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 
     <ProjectName Condition=" '$(ProjectName)' == '' ">$(MSBuildProjectName)</ProjectName>
     <RootBuildFolder>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\build\))</RootBuildFolder>
+    <RootPackagesFolder>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\packages\))</RootPackagesFolder>
     <ArtifactsFolder>$(RootBuildFolder)artifacts\</ArtifactsFolder>
     <ToolsFolder>$(RootBuildFolder).tools</ToolsFolder>
     <PackageOutputPath>$(ArtifactsFolder)</PackageOutputPath>
@@ -29,5 +30,4 @@
   </PropertyGroup>
 
   <Import Project="Directory$(MSBuildProjectExtension).props" Condition=" Exists('Directory$(MSBuildProjectExtension).props') " />
-  <Import Project="Custom.Build.props" Condition=" Exists('Custom.Build.props') " />
 </Project>
